@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 use App\Http\Controllers\API\LocationController;
 Route::apiResource('location', LocationController::class);
+Route::post('/sanctum/token', [UserController::class, 'token']);
+
+Route::post('/sanctum/token/register', [UserController::class, 'register']);
